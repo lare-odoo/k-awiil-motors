@@ -3,6 +3,7 @@ from odoo import fields, models
 # Inherit from basic Model
 class Course(models.Model):
     _name = 'motorcycle.registry'
+    _description = 'Motorcycle registry'
     _rec_name = 'registry_number'
     
     registry_number = fields.Char(string="Registry Number", required=True)

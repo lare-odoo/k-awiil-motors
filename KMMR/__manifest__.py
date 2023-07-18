@@ -10,7 +10,9 @@
     'category': 'Kawiil/Kawiil',
     'depends': ['base'],
     'data': [],
-    'demo': [],
+    'demo': [
+        'demo/kmmr_demo.xml',
+    ],
     'application': True,
     'license': 'OPL-1',
 }
