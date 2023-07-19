@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="1">
         <record id="motorcycle_01" model="motorcycle.registry">
-            <field name="registry_number">1123-123234</field>
+            <field name="registry_number">1</field>
             <field name="vin">C13413</field>
             <field name="first_name">Luis</field>
             <field name="last_name">Ramirez</field>
@@ -12,8 +12,8 @@
             <field name="certificate_title">1</field>
             <field name="register_date">2023-04-14</field>
         </record>
-        <record id="motorcycle_01" model="motorcycle.registry">
-            <field name="registry_number">4413-125434</field>
+        <record id="motorcycle_02" model="motorcycle.registry">
+            <field name="registry_number">2</field>
             <field name="vin">V12313</field>
             <field name="first_name">Lyle</field>
             <field name="last_name">Croc</field>
@@ -23,16 +23,16 @@
             <field name="certificate_title">0</field>
             <field name="register_date">2022-02-1</field>
         </record>
-        <record id="motorcycle_01" model="motorcycle.registry">
-            <field name="registry_number">4413-125434</field>
-            <field name="vin">V12313</field>
-            <field name="first_name">Lyle</field>
-            <field name="last_name">Croc</field>
+        <record id="motorcycle_03" model="motorcycle.registry">
+            <field name="registry_number">3</field>
+            <field name="vin">G43HG44</field>
+            <field name="first_name">John</field>
+            <field name="last_name">Kreese</field>
             <field name="picture"></field>
             <field name="current_mileage">6.5</field>
-            <field name="license_plate">3x43ss</field>
+            <field name="license_plate">74d1sc</field>
             <field name="certificate_title">0</field>
-            <field name="register_date">2022-02-1</field>
+            <field name="register_date">2004-03-8</field>
         </record>
     </data>
 </odoo>
