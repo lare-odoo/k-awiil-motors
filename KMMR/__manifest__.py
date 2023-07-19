@@ -12,6 +12,7 @@
     'data': [
         'security/motorcycle_groups.xml',
         'security/ir.model.access.csv',
+        'views/KMMR_menuitems.xml',
     ],
     'demo': [
         'demo/kmmr_demo.xml',
