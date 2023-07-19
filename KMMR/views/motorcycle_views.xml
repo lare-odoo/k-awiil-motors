@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Create the view. Inherits from ir.ui.view -->
+    <record id="motorcycle_view_form" model="ir.ui.view">
+        <field name="name">motorcycle.view.form</field>
+        <!-- The model that this view belongs to -->
+        <field name="model">motorcycle.registry</field>
+
+        <!-- ARCH field where we will define the view -->
+        <!-- Form view -->
+        <field name="arch" type="xml">
+            <form string="Motorcycle view">
+                <header>
+                    <field name="registry_number" />
+                </header>
+                <sheet>
+                    <h1><field name="registry_number" /></h1>
+                    <field name='picture' widget='image' />
+                    <group>
+                        <group>
+                            <separator string="Motorcycle Information" />
+                            <field name="current_mileage" />
+                            <field name="license_plate" />
+                        </group>
+                        <group>
+                            <separator string="Owner Information" />
+                        </group>
+                        <group>
+                            
+                        </group>
+                        <notebook>
+                            <page string="Related Documents">
+                                <group>
+                                    <field name="certificate_title" widget="file" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Create the view. Inherits from ir.ui.view -->
+    <record id="motorcycle_view_list" model="ir.ui.view">
+        <field name="name">motorcycle.view.list</field>
+        <!-- The model that this view belongs to -->
+        <field name="model">motorcycle.registry</field>
+
+        <!-- ARCH field where we will define the view -->
+        <!-- List view -->
+        <field name="arch" type="xml">
+            <tree string="Motorcycles List">
+                <field name="registry_number" />
+                <field name="vin" />
+                <field name="license_plate" />
+                <field name="first_name" />
+                <field name="last_name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Create the view. Inherits from ir.ui.view -->
+    <record id="motorcycle_view_search" model="ir.ui.view">
+        <field name="name">motorcycle.view.search</field>
+        <!-- The model that this view belongs to -->
+        <field name="model">motorcycle.registry</field>
+
+        <!-- ARCH field where we will define the view -->
+        <!-- Form view -->
+        <field name="arch" type="xml">
+            <search>
+                <field name="registry_number" />
+                <field name="vin" />
+                <field name="last_name" />
+                <field name="license_plate" />
+            </search>
+        </field>
+    </record>
+</odoo>
