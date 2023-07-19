@@ -9,7 +9,10 @@
     'website': 'https://github.com/lare-odoo/k-awiil-motors',
     'category': 'Kawiil/Kawiil',
     'depends': ['base'],
-    'data': [],
+    'data': [
+        'security/motorcycle_groups.xml',
+        'security/ir.model.access.csv',
+    ],
     'demo': [
         'demo/kmmr_demo.xml',
     ],
