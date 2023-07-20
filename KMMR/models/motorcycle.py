@@ -50,6 +50,23 @@ class Course(models.Model):
     license_plate = fields.Char()
     certificate_title = fields.Binary(string="Certificate Title")
     register_date = fields.Date()
+    horsepower = fields.Float ()
+    top_speed = fields.Float ()
+    torque = fields.Float ()
+    battery_capacity = fields.Selection (
+        selection = [
+            ('xs', 'Economical'),
+            ('sm', 'Small'),
+            ('md', 'Medium'),
+            ('lg', 'Large'),
+            ('xl', 'Extra Large'),
+        ],
+        default = 'md'
+    )
+    charge_time = fields.Float ()
+    range_field = fields.Float (string = "Range")
+    curb_weight = fields.Float ()
+    launch_date = fields.Date ()
     
     # The create method takes a list of values
     # to create the record, and the 'self' to
