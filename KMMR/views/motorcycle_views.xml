@@ -14,22 +14,24 @@
                     <field name="registry_number" />
                 </header>
                 <sheet>
+                    <field name="picture" widget="image" class="oe_avatar" />
                     <h1><field name="registry_number" /></h1>
                     <group>
                         <group>
                             <separator string="Motorcycle Information" />
                             <field name="register_date" />
                             <field name="vin" />
+                            <field name="make" />
+                            <field name="model" />
+                            <field name="year" />
                             <field name="current_mileage" />
                             <field name="license_plate" />
                         </group>
                         <group>
                             <separator string="Owner Information" />
-                            <field name="first_name" />
-                            <field name="last_name" />
-                        </group>
-                        <group>
-                            <field nolabel="1" name='picture' widget='image' />
+                            <field name="motorcycle_owner_id" />
+                            <field name="owner_phone" />
+                            <field name="owner_email" />
                         </group>
                         <notebook>
                             <page string="Related Documents">
@@ -57,8 +59,7 @@
                 <field name="registry_number" />
                 <field name="vin" />
                 <field name="license_plate" />
-                <field name="first_name" />
-                <field name="last_name" />
+                <field name="motorcycle_owner_id" />
             </tree>
         </field>
     </record>
@@ -75,7 +76,7 @@
             <search>
                 <field name="registry_number" />
                 <field name="vin" />
-                <field name="last_name" />
+                <field name="motorcycle_owner_id" />
                 <field name="license_plate" />
             </search>
         </field>
