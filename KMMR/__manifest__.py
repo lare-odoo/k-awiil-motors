@@ -12,11 +12,12 @@
     'data': [
         'security/motorcycle_groups.xml',
         'security/ir.model.access.csv',
+        'data/registry_data.xml',
         'views/KMMR_menuitems.xml',
         'views/motorcycle_views.xml'
     ],
     'demo': [
-        'demo/kmmr_demo.xml',
+        #'demo/kmmr_demo.xml',
     ],
     'application': True,
     'license': 'OPL-1',
