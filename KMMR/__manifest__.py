@@ -8,7 +8,7 @@
     'author': 'lare-odoo',
     'website': 'https://github.com/lare-odoo/k-awiil-motors',
     'category': 'Kawiil/Kawiil',
-    'depends': ['sale'],
+    'depends': ['sale', 'website'],
     'data': [
         'security/motorcycle_groups.xml',
         'security/ir.model.access.csv',
@@ -16,6 +16,7 @@
         'views/KMMR_menuitems.xml',
         'views/motorcycle_views.xml',
         'views/product_views_inherit.xml',
+        'views/compare_templates.xml'
     ],
     'demo': [
         #'demo/kmmr_demo.xml',

@@ -21,9 +21,6 @@
                             <separator string="Motorcycle Information" />
                             <field name="register_date" />
                             <field name="vin" />
-                            <field name="make" />
-                            <field name="model" />
-                            <field name="year" />
                             <field name="current_mileage" />
                             <field name="license_plate" />
                         </group>

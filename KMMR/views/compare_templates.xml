@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Define template -->
+        <template id="compare_bikes">
+            <!-- Wrapper template for website functionality -->
+            <t t-call="website.layout">
+                <t t-set="title">Bike comparison</t>
+
+                <!-- General structure -->
+                <div class="oe-structure">
+                    <div class="container">
+                        <h1>Bike comparison</h1>
+                        
+                        <h3>Specs</h3>
+
+                        <t t-foreach="bikes" t-as="bike">
+                            <h5><t t-esc="bike.model" /></h5>
+                            <p>Horsepower 
+                                <span t-field="bike.horsepower" />
+                            </p>
+                            <p>Top Speed 
+                                <span t-field="bike.top_speed" />
+                            </p>
+                            <p>Torque 
+                                <span t-field="bike.torque" />
+                            </p>
+                            <p>Battery Capacity 
+                                <span t-field="bike.battery_capacity" />
+                            </p>
+                            <p>Charge Time 
+                                <span t-field="bike.charge_time" />
+                            </p>
+                            <p>Range 
+                                <span t-field="bike.range_field" />
+                            </p>
+                            <p>Curb Weight 
+                                <span t-field="bike.curb_weight" />
+                            </p>
+                            <p>Image 
+                                <img t-att-src="bike.picture" />
+                            </p>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

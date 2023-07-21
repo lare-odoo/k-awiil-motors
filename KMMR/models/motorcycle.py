@@ -24,12 +24,12 @@ class Course(models.Model):
     # -- Year - 2 digits
     # -- Battery Capacity - 2 capital letters or digits
     # -- Serial Number - 6 digits
-    vin = fields.Char(string="VIN",required=True)
+    vin = fields.Char (string="VIN",required=True)
 
     # Computed from VIN
-    make = fields.Char (compute = "_set_brand_make_model", readonly = "1")
-    model = fields.Char (compute = "_set_brand_make_model", readonly = "1")
-    year = fields.Char (compute = "_set_brand_make_model", readonly = "1")
+    make = fields.Char (compute = "_get_brand_make_model", inverse = "_set_brand_make_model")
+    model = fields.Char (compute = "_get_brand_make_model", inverse = "_set_brand_make_model")
+    year = fields.Char (compute = "_get_brand_make_model", inverse = "_set_brand_make_model")
     
     # We're using res.partner model to handle contact
     # info, including name, phone and email.
@@ -50,23 +50,6 @@ class Course(models.Model):
     license_plate = fields.Char()
     certificate_title = fields.Binary(string="Certificate Title")
     register_date = fields.Date()
-    horsepower = fields.Float ()
-    top_speed = fields.Float ()
-    torque = fields.Float ()
-    battery_capacity = fields.Selection (
-        selection = [
-            ('xs', 'Economical'),
-            ('sm', 'Small'),
-            ('md', 'Medium'),
-            ('lg', 'Large'),
-            ('xl', 'Extra Large'),
-        ],
-        default = 'md'
-    )
-    charge_time = fields.Float ()
-    range_field = fields.Float (string = "Range")
-    curb_weight = fields.Float ()
-    launch_date = fields.Date ()
     
     # The create method takes a list of values
     # to create the record, and the 'self' to
@@ -97,7 +80,7 @@ class Course(models.Model):
         regex = re.compile ("[A-Z]{1,4}[0-9]{1,3}([A-Z]{2})?$")
 
         for motorcycle in self:
-            if regex.match(motorcycle.license_plate) == None:
+            if re.search(regex, motorcycle.license_plate) is None:
                 raise ValidationError ('License plate doesn\'t match format')
             
     @api.constrains('vin')
@@ -114,22 +97,30 @@ class Course(models.Model):
         regex = re.compile ("[A-Z]{4}\d{2}([A-Z]|\d){2}\d{6}")
 
         for motorcycle in self:
-            if len(motorcycle.vin) != 14 or re.search(regex, motorcycle.vin) == None:
+            if len(motorcycle.vin) != 14 or re.search(regex, motorcycle.vin) is None:
                 raise ValidationError ('VIN doesn\'t match format')
-            
+
             # Check how to make following code work by
             # searching through the entire DB
-            '''
-            domain = [('vin', '=', motorcycle.vin)]
-            count = self.sudo().search_count(domain)
 
-            if count > 1:
-                raise ValidationError ("VIN should be unique")
-            '''
+            # domain = [('vin', '=', motorcycle.vin)]
+            # count = self.sudo().search_count(domain)
+
+            # if count > 1:
+            #     raise ValidationError ("VIN should be unique")
 
     @api.depends ('vin')
-    def _set_brand_make_model (self):
+    def _get_brand_make_model (self):
         for motorcycle in self:
             motorcycle.make = motorcycle.vin[0:2]
             motorcycle.model = motorcycle.vin[2:4]
             motorcycle.year = motorcycle.vin[4:6]
+
+    def _set_brand_make_model (self):
+        for motorcycle in self:
+            if not motorcycle.make: continue
+            motorcycle.make = ""
+            if not motorcycle.model: continue
+            motorcycle.model = ""
+            if not motorcycle.year: continue
+            motorcycle.year = ""
